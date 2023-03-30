@@ -1,10 +1,12 @@
 using Ordering.API.Extensions;
 using Ordering.Application;
+using Ordering.Application.Mappings;
 using Ordering.Infrastructure;
 using Ordering.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
